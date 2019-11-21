@@ -53,7 +53,7 @@ public class WebViewProgressView: UIView {
     public func setProgress(_ progress: Float, animated: Bool = false) {
         let isGrowing = progress > 0.0
         if let barAnimationDuration = barAnimationDuration {
-            UIView.animate(withDuration: (isGrowing && animated) ? barAnimationDuration : 0.0, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            UIView.animate(withDuration: (isGrowing && animated) ? barAnimationDuration : 0.0, delay: 0.0, options: UIView.AnimationOptions(), animations: {
                 var frame = self.progressBarView?.frame
                 frame?.size.width = CGFloat(progress) * self.bounds.size.width
                 self.progressBarView?.frame = frame ?? .zero
@@ -63,7 +63,7 @@ public class WebViewProgressView: UIView {
         guard let fadeAnimationDuration = fadeAnimationDuration else { return }
         if progress >= 1.0 {
             guard let fadeOutDelay = fadeOutDelay else { return }
-            UIView.animate(withDuration: animated ? fadeAnimationDuration : 0.0, delay: fadeOutDelay, options: UIViewAnimationOptions(), animations: {
+            UIView.animate(withDuration: animated ? fadeAnimationDuration : 0.0, delay: fadeOutDelay, options: UIView.AnimationOptions(), animations: {
                 self.progressBarView?.alpha = 0.0
                 }, completion: {
                     completed in
@@ -72,7 +72,7 @@ public class WebViewProgressView: UIView {
                     self.progressBarView?.frame = frame ?? .zero
             })
         } else {
-            UIView.animate(withDuration: animated ? fadeAnimationDuration : 0.0, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            UIView.animate(withDuration: animated ? fadeAnimationDuration : 0.0, delay: 0.0, options: UIView.AnimationOptions(), animations: {
                 self.progressBarView?.alpha = 1.0
             }, completion: nil)
         }

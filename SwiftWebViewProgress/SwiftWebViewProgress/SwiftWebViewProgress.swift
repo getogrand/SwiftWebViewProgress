@@ -76,7 +76,7 @@ public class WebViewProgress: NSObject {
 }
 
 extension WebViewProgress: UIWebViewDelegate {
-    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         guard let url = request.url else {
             return false
         }
